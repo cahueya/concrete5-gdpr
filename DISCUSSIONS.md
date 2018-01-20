@@ -59,8 +59,7 @@ In http://domain.tld/index.php/dashboard/system/registration/open, choose "Off",
 * Enable declaration of consent to the privacy statement (required checkbox at the registration form)
 In http://domain.tld/index.php/dashboard/users/attributes, choose "Add Attribute" and choose "Checkbox" from the list. Name the attribute handle something like "privacy_check", for the attribute name, formulate something like "I have read and understood the terms of service and the privacy declaration and agree to it" and make it shown and required on User registration. 
 
-
-* Safe connection. Use Encryption (SSL/TLS) to ensure nobody collects the data
+* Safe connection. Use Encryption (SSL/TLS) to ensure nobody collects the data. You can use Let's Encrypt easily if you have ssh access to your server. If you are not sure what to do, this Add-On might help:[http://www.concrete5.org/marketplace/addons/lets-encrypt](http://www.concrete5.org/marketplace/addons/lets-encrypt) 
 
 ### Documentation
 * In your privacy statement, you need to declare WHAT data you are collection, WHAT you are using it for and HOW you treat it. i.E. "We need to collect your email address to stay in touch with you. We also require your name and address for billing of our services."
