@@ -54,7 +54,12 @@ I will try to outline which technical solutions would help comply to GDPR:
 
 ### Registration process
 * Double-Opt-In (Email Confirmation)
+In http://domain.tld/index.php/dashboard/system/registration/open, choose "Off", if you don't want any registrations or "Validate" if you want registrations to be possible.
+
 * Enable declaration of consent to the privacy statement (required checkbox at the registration form)
+In http://domain.tld/index.php/dashboard/users/attributes, choose "Add Attribute" and choose "Checkbox" from the list. Name the attribute handle something like "privacy_check", for the attribute name, formulate something like "I have read and understood the terms of service and the privacy declaration and agree to it" and make it shown and required on User registration. 
+
+
 * Safe connection. Use Encryption (SSL/TLS) to ensure nobody collects the data
 
 ### Documentation
