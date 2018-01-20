@@ -52,13 +52,25 @@ Some technical challenges come with GDPR. I will try to outline the technical bi
 
 I will try to outline which technical solutions would help comply to GDPR:
 
-### User profile
+### Registration process
+* Double-Opt-In (Email Confirmation)
+* Enable declaration of consent to the privacy statement (required checkbox at the registration form)
+* Safe connection. Use Encryption (SSL/TLS) to ensure nobody collects the data
 
+### Documentation
+* In your privacy statement, you need to declare WHAT data you are collection, WHAT you are using it for and HOW you treat it. i.E. "We need to collect your email address to stay in touch with you. We also require your name and address for billing of our services."
+* If you are a company above 10 employees or the data you are handling is highly sensitive (banking data, health data), you need to appoint a Data Protection Officer within your company.
+* You need to explain the rights of the customer regarding their private data (change, erase, export)
+
+### User profile
 * Possibility to delete or request deletion through the user profile
+* The user data must be really deleted from the database or pseudonymized
 * Possibility to export the user data through the user profile (CSV?)
 * Possibility to swith a public profile to "private" through permissions
 
- 
 ### Security Check
-
-* Built-in Checking Tool that will look for SSL or proper configuration of permissions
+* Built-in Checking Tool that will look for
+** Working SSL/TLS certificate
+** Privacy consent checkbox in user registration
+** Double Opt-In configuration for user profile
+* Checkbox "Do you have a privacy statement?"
