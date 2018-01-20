@@ -35,8 +35,8 @@ The goal of this page is the creation of a working solution to all three:
 
 ## 2. Documentation
 
-*Data Protection Officer. You need to assign a Data protection officer who has knowledge about privacy laws as well as IT security.  Here are some guidelines of how to appoint someone: https://en.wikipedia.org/wiki/General_Data_Protection_Regulation#cite_note-18
-*You need to clarify in your privacy statement WHAT data you collect and what the PURPOSE of the collection of this data ist. You need to explain with whom the data can be shared and how you treat it.
+* Data Protection Officer. You need to assign a Data protection officer who has knowledge about privacy laws as well as IT security.  Here are some guidelines of how to appoint someone: https://en.wikipedia.org/wiki/General_Data_Protection_Regulation#cite_note-18
+* You need to clarify in your privacy statement WHAT data you collect and what the PURPOSE of the collection of this data ist. You need to explain with whom the data can be shared and how you treat it.
 
 ## 3. Technical bits
 
