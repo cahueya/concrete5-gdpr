@@ -12,11 +12,11 @@ Outline
 
 The whole process of being compliant to GDPR can be divided in three separate categories (please educate me if I'm wrong):
 
-1.Behavior as a website owner
+1. Behavior as a website owner
 
-2.Documentation
+2. Documentation
 
-3.Technical bits
+3. Technical bits
 
 The goal of this page is the creation of a working solution to all three:
 
