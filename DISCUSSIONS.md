@@ -69,8 +69,8 @@ I will try to outline which technical solutions would help comply to GDPR:
 * Possibility to swith a public profile to "private" through permissions
 
 ### Security Check
-* Built-in Checking Tool that will look for
-** Working SSL/TLS certificate
-** Privacy consent checkbox in user registration
-** Double Opt-In configuration for user profile
+Built-in Checking Tool that will look for:
+* Working SSL/TLS certificate
+* Privacy consent checkbox in user registration
+* Double Opt-In configuration for user profile
 * Checkbox "Do you have a privacy statement?"
