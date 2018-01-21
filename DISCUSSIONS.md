@@ -7,6 +7,13 @@ The General data protection regulation is a law that will be active in May 2018 
 
 To get some details about the Regulation, look here: [https://www.eugdpr.org/](https://www.eugdpr.org/)
 
+## Who is affected by this?
+The GDPR aims to protect the personal data of EU citizens and summarize the data protection laws of the EU states so that data within the EU can be shared and processed on equal terms.
+
+### Data subjects
+The Data subjects are the people whose data is being used: the customers. Data subjects are natural personas living in the EU. So if you are dealing only with companies, GDPR does not apply to you. If you are working from the US but dealing with EU citizens, the GDPR does apply to you.
+
+
 I will try to summarize the relevant points that need to be applied to make a website gdpr-compliant. I am not a lawyer, this is no legal counseling. The whote intent of this page is to provide orientation for the creation of a GDPR-compliance Package / Documentation for the use with concrete5.
 Outline
 
