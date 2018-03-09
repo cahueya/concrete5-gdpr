@@ -11,7 +11,7 @@ To get some details about the Regulation, look here: [https://www.eugdpr.org/](h
 The GDPR aims to protect the personal data of EU citizens and summarize the data protection laws of the EU states so that data within the EU can be shared and processed on equal terms.
 
 ### Data subjects
-The Data subjects are the people whose data is being used: the customers. Data subjects are natural personas living in the EU. So if you are dealing only with companies, GDPR does not apply to you. If you are working from the US but dealing with EU citizens, the GDPR does apply to you.
+The Data subjects are the people whose data is being used: the customers. Data subjects are natural personas living in the EU. If you are working from the US but dealing with EU citizens, the GDPR does apply to you.
 
 
 I will try to summarize the relevant points that need to be applied to make a website gdpr-compliant. I am not a lawyer, this is no legal counseling. The whote intent of this page is to provide orientation for the creation of a GDPR-compliance Package / Documentation for the use with concrete5.
@@ -19,7 +19,7 @@ Outline
 
 The whole process of being compliant to GDPR can be divided in three separate categories (please educate me if I'm wrong):
 
-1. Behavior as a website owner
+1. Behavior as a website owner, your obligations
 
 2. Documentation
 
@@ -35,15 +35,20 @@ The goal of this page is the creation of a working solution to all three:
 
 ## 1. Behavior as a website owner
 
-* Data reduction. Only collect the data you actually need.
+* Data reduction. Only collect the data you actually need. If you need the data consistently (i.E. sending Emails to that person), you may retain the data. If you do not use or need the data (i.E. someone contacted you over contact form, does not wish to receive a newsletter and you contact is over), you must dismiss that data if there is no other reason to keep it. 
+This also means that your error- and access-logs should be flushed after a reasonable time. Like, if you think you should keep the logs for up to 3 months for error tracking, this is fine but you need to clarify that in your documentation and flush the logs after that time.
 * Consent. You need to collect the consent of whoever you are collecting the data from. A checkbox with a link to your privacy statement would serve this purpose. Opt-In is required.
 * Secure Data Transport. A SSL/TLS certificate seems unavoidable to mitigate MIM attacks. Either obtain a commercial certificate or read up about the Let's Encrypt Initiative to get a high-quality, free certificate.
 * Breach reports. GDPR requires that you inform your Data Protection Officer within 72hrs after you know about a data breach or privacy intrusion to your system.
+* Data protection officer. If you are a company with 10 or more people you need to have a data protection offical who is the contact for any means of data security problems.
 
 ## 2. Documentation
 
 * Data Protection Officer. You need to assign a Data protection officer who has knowledge about privacy laws as well as IT security.  Here are some guidelines of how to appoint someone: https://en.wikipedia.org/wiki/General_Data_Protection_Regulation#cite_note-18
-* You need to clarify in your privacy statement WHAT data you collect and what the PURPOSE of the collection of this data ist. You need to explain with whom the data can be shared and how you treat it.
+* You need to clarify in your privacy statement WHAT data you collect and what the PURPOSE of the collection of this data ist. You need to explain with whom the data can be shared and how you treat it and WHEN you are gonna delete it.
+* In your Privacy Statement you need to list any external services who get in touch with your customers' traffic. If you use a CDN for Javascript, Google Webfonts or Maps or any Service that is called whenever your site is called, you need to list it.
+* Data processing agreements. Whichever service gets in touch with the data you collected from your users (IP address, username) needs to have a data processing agreement with you. Google Analytics -> you need agreement. Mailchimp Mailing Service -> you need an agreement with them. And of course you must mention the use of that service and for which reason and and which data you share with them.
+
 
 ## 3. Technical bits
 
@@ -51,13 +56,16 @@ Some technical challenges come with GDPR. I will try to outline the technical bi
 
 * Pseudonymisation. GDPR requires that even in the case of a data breach, the personal data of the website customers (Name, Address, Birthdata) should not be usable to the intruder. This requires encryption of the data.
 * An example of pseudonymisation is encryption, which renders the original data unintelligible and the process cannot be reversed without access to the correct decryption key. The GDPR requires that this additional information (such as the decryption key) be kept separately from the pseudonymised data. Pseudonymisation is recommended to reduce the risks to the concerned data subjects and also help controllers and processors to meet their data-protection obligations (Recital 28). Although the GDPR encourages the use of pseudonymisation to "reduce risks to the data subjects," (Recital 28) pseudonymised data is still considered personal data (Recital 26) and therefore remains covered by the GDPR. https://en.wikipedia.org/wiki/General_Data_Protection_Regulation#Pseudonymisation
-* Right to acces. You need to enable the customer access to their personal data. This means: a user profile is mandatory and needs to be accessible to the user. But the user shall have the possibility to keep their profile private.
-* Right to erasure. The user must be able to delete the profile. I assume that deleting the user profile includes removing the data from the database.
-* Data portability. There must be a possibility to export the personal data so that it can be imported to another system.
+**Update** from a recent webinar, it seems like a database that is protected with regular measures is ok.
+* Right to acces. You need to enable the customer access to their personal data. This means: EITHER a user profile is mandatory and needs to be accessible to the user, but the user shall have the possibility to keep their profile private. OR you need to provide a user with the data you have had collected of them within **one month** after they request it.
+* Right to erasure. The user must be able to delete the profile. I assume that deleting the user profile includes removing the data from the database. This should either be part of a user profile or you must fulfill the users request for deletion within one month after request.
+* Data portability. There must be a possibility to export the personal data so that it can be imported to another system. So you either provide the user data in an easy-to-get format (Copy&Paste-friendly) OR as an export batch OR you need to hand it out to the user within one month after their request.
 
 ## Solutions
 
 I will try to outline which technical solutions would help comply to GDPR:
+
+
 
 ### Registration process
 * Double-Opt-In (Email Confirmation)
@@ -85,3 +93,5 @@ Built-in Checking Tool that will look for:
 * Privacy consent checkbox in user registration
 * Double Opt-In configuration for user profile
 * Checkbox "Do you have a privacy statement?"
+
+
