@@ -100,4 +100,8 @@ Built-in Checking Tool that will look for:
 * Double Opt-In configuration for user profile?
 * Checkbox "Do you have a sufficient privacy statement?"
 
-
+### Legal Sharing / Like buttons
+Most of the available Social Media Share/Like plugins will be ILLEGAL according to GDPR because they transmit the users data of visit to the networks without getting any voluntary confirmation. To be GDPR compliant, there is need for a new plugin that needs to be positivley activated to make the connection to the networks like this:
+https://github.com/heiseonline/shariff
+There is a plugin for concrete5 v.6 in the marketplace:
+http://www.concrete5.org/marketplace/addons/social-share-privacy/
