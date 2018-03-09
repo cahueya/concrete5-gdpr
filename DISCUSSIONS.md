@@ -61,11 +61,12 @@ Some technical challenges come with GDPR. I will try to outline the technical bi
 * Right to erasure. The user must be able to delete the profile. I assume that deleting the user profile includes removing the data from the database. This should either be part of a user profile or you must fulfill the users request for deletion within one month after request.
 * Data portability. There must be a possibility to export the personal data so that it can be imported to another system. So you either provide the user data in an easy-to-get format (Copy&Paste-friendly) OR as an export batch OR you need to hand it out to the user within one month after their request.
 
-## Solutions
+## Solutions that are already possible
 
 I will try to outline which technical solutions would help comply to GDPR:
 
-
+### Flushing or Anonymisation of server logs (access logs / error logs that contain IPs)
+**This can not be done through concrete5!** Go find a host that does these things or get access to the logs yourself. Whoever is offering the webiste to the general public is responsible for the fulfilling of the GDPR regulation.
 
 ### Registration process
 * Double-Opt-In (Email Confirmation)
@@ -82,16 +83,21 @@ In http://domain.tld/index.php/dashboard/users/attributes, choose "Add Attribute
 * You need to explain the rights of the customer regarding their private data (change, erase, export)
 
 ### User profile
+* Possibility to swith a public profile to "private" through permissions
+
+
+## Solutions that could be built as a package for concrete5
+
+### User profile
 * Possibility to delete or request deletion through the user profile
 * The user data must be really deleted from the database or pseudonymized (this would resolve the issue: [https://github.com/concrete5/concrete5/issues/6283](https://github.com/concrete5/concrete5/issues/6283) .)
-* Possibility to export the user data through the user profile (CSV?)
-* Possibility to swith a public profile to "private" through permissions
+* Possibility to export the user data through the user profile (CSV?) OR possibility to display the user data in an easy-to-copy field
 
 ### Security Check
 Built-in Checking Tool that will look for:
-* Working SSL/TLS certificate
-* Privacy consent checkbox in user registration
-* Double Opt-In configuration for user profile
-* Checkbox "Do you have a privacy statement?"
+* Working SSL/TLS connection
+* Privacy consent checkbox in user registration present?
+* Double Opt-In configuration for user profile?
+* Checkbox "Do you have a sufficient privacy statement?"
 
 
