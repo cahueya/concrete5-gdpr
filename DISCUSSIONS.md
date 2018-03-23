@@ -43,6 +43,8 @@ This also means that your error- and access-logs should be flushed after a reaso
 * Secure Data Transport. A SSL/TLS certificate seems unavoidable to mitigate MIM attacks. Either obtain a commercial certificate or read up about the Let's Encrypt Initiative to get a high-quality, free certificate.
 * Breach reports. GDPR requires that you inform your Data Protection Officer within 72hrs after you know about a data breach or privacy intrusion to your system.
 * Data protection officer. If you are a company with 10 or more people you need to have a data protection offical who is the contact for any means of data security problems.
+* Backup Hygiene. If you collect personal data of your users (user profiles), one of them might request deletion one day. You are obligated to remove their data from your production system (live system). If there is user data in your backup files, you must keep these backups reasonable secure (encrypted, safe storage) so that no-one can get access. If you must restore your website from an older backup so that the data becomes "live" again, you must re-perform the deletion of the users that asked for it. 
+All you obligations to reduce or delete user data can be overridden by tax laws. So if your country of residents requires you to keep tax records of purchases for 10 years, you are no longer obliged to delete that data even upon request.
 
 ## 2. Documentation
 
