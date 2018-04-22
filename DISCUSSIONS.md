@@ -94,7 +94,7 @@ In http://domain.tld/index.php/dashboard/users/attributes, choose "Add Attribute
 
 ### User profile
 * Possibility to delete or request deletion through the user profile
-* The user data must be really deleted from the database or pseudonymized (this would resolve the issue: [https://github.com/concrete5/concrete5/issues/6283](https://github.com/concrete5/concrete5/issues/6283) .)
+* The user data must be really deleted from the database or pseudonymized (this issue has been resolved: [https://github.com/concrete5/concrete5/issues/6283](https://github.com/concrete5/concrete5/issues/6283) .)
 * Possibility to export the user data through the user profile (CSV?) OR possibility to display the user data in an easy-to-copy field
 
 ### Security Check
