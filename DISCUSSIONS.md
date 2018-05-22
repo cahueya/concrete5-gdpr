@@ -69,6 +69,15 @@ Some technical challenges come with GDPR. I will try to outline the technical bi
 
 I will try to outline which technical solutions would help comply to GDPR:
 
+### GDPR Package in the Marketplace ###
+There are two packages in the concrete5 marketplace that help a lot in being compliant with GDPR:
+
+
+[https://www.concrete5.org/marketplace/addons/gdpr](https://www.concrete5.org/marketplace/addons/gdpr)
+
+[https://www.concrete5.org/marketplace/addons/extreme-clean1(https://www.concrete5.org/marketplace/addons/extreme-clean1)]
+
+
 ### Flushing or Anonymisation of server logs (access logs / error logs that contain IPs)
 **This can not be done through concrete5!** Go find a host that does these things or get access to the logs yourself. Whoever is offering the website to the general public is responsible for the fulfilling of the GDPR regulation.
 
