@@ -75,7 +75,7 @@ There are two packages in the concrete5 marketplace that help a lot in being com
 
 [https://www.concrete5.org/marketplace/addons/gdpr](https://www.concrete5.org/marketplace/addons/gdpr)
 
-[https://www.concrete5.org/marketplace/addons/extreme-clean1(https://www.concrete5.org/marketplace/addons/extreme-clean1)]
+[https://www.concrete5.org/marketplace/addons/extreme-clean1](https://www.concrete5.org/marketplace/addons/extreme-clean1)
 
 
 ### Flushing or Anonymisation of server logs (access logs / error logs that contain IPs)
