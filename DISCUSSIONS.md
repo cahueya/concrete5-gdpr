@@ -118,3 +118,100 @@ Most of the available Social Media Share/Like plugins will be ILLEGAL according 
 https://github.com/heiseonline/shariff
 There is a plugin for concrete5 v.6 in the marketplace:
 http://www.concrete5.org/marketplace/addons/social-share-privacy/
+
+## Handling Cookies
+
+Browsing websites, we are often asked to accept cookies.
+It means that we can't store user-related data without user's consent. So, those pop-ups are not meant to say "Hey, we use cookies": we can't really store sensitive cookies before the user accepted it.
+
+Please remark that techical cookies (like session cookies) or data that's not directly associated to users (like **anonymized** Google Analytics) doesn't require consent. 
+
+So, what should be done if you need to add Google Ads/Facebook Pixel/... (or non-anonymized Google Analytics) tracking code to the pages?
+
+I found an elegant way by using [Google Tag Manager](https://google.com/tagmanager) (_GTM_ for short).
+
+For the people that don't know it, GTM is a way to manage what they call _tags_, that is tracking codes (from various vendors, not only Google ones) as well as custom codes.
+
+In GTM you define the so-called tags container, which is assigned an unique ID that starts with `GTM-` (for example `GTM-XXXXXXX`).
+
+In your website, you then replace all the former Analytics/AdWords/Pixel/... tags with the code of the tag container, which is something like this:
+
+```html
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+```
+
+The above code can be rewritten in a more comprehensible way like this:
+
+```html
+<script>
+if (!window.dataLayer) {
+    window.dataLayer = [];
+}
+window.dataLayer.push({'gtm.start': new Date().getTime(), 'event':'gtm.js'});
+</script>
+<script async src="'https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXXX"></script>
+```
+
+GTM is really handy, since you manage the tags (tracking codes) via its nice web interface, instead of having to update the codes in the website.
+
+Ok, great, but what's all this related to the cookie law?
+
+What's great in GTM is that you can include (*trigger*) a tag (for example, Google Ads code) only when a custom *event* occurs.
+
+Assuming that in GTM you used `userAcceptedTrackingCookies` as the name of the custom event, we may have 2 cases when users visit a page:
+
+1. users haven't accepted the cookies yet  
+   in this case you display a dialog, asking users to accept cookies; when they accept the cookies, you fire the   `userAcceptedTrackingCookies` event
+2. users have already accepted the cookies  
+   in this case you simply fire the `userAcceptedTrackingCookies` event
+
+
+All this, can be written (very bad but clear code) like:
+
+```php
+<?php
+if (empty($_COOKIE['cookies-ok'])) {
+    ?>
+    <div id="cookie-consent">
+        Accept cookies? <button onclick="userAcceptedTheCookies()">Yes</button>
+    </div>
+    <script>
+    function userAcceptedTheCookies() {
+        $('#cookie-consent').remove();
+        var date = new Date(new Date().getTime() + 31557600000); // 1 year
+        document.cookie = 'cookies-ok=1; path=/; expires=' + date.toUTCString();
+        if (!window.dataLayer) {
+            window.dataLayer = [];
+        }
+        window.dataLayer.push({'event': 'userAcceptedTrackingCookies'});
+    }
+    </script>
+    <?php
+} else {
+    ?>
+    <script>
+    if (!window.dataLayer) {
+        window.dataLayer = [];
+    }
+    window.dataLayer.push({'event': 'userAcceptedTrackingCookies'});
+    </script>
+}
+```
+
+That's it. Nice, isn't it?
+
+> [Pro tip]
+> ```
+> if (!window.dataLayer) {
+>     window.dataLayer = [];
+> }
+> window.dataLayer.push(...);
+> ```
+> can be written in one line as
+> ```
+> (window.dataLayer = window.dataLayer || []).push(...);
+> ```
